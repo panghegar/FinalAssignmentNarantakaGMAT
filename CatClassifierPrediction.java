@@ -15,17 +15,16 @@ public class CatClassifierPrediction {
         SVM svm = SVM.load("cat_classifier.xml");
 
         // Load gambar uji
-        Mat testImage = Imgcodecs.imread("assets/CAT_00/00000001_000.jpg", Imgcodecs.IMREAD_GRAYSCALE);
+        // assets/CAT_00/00000001_000.jpg
+        // assets/kucing2.jpg
+        // banana/0_100.jpg
+        Mat testImage = Imgcodecs.imread("banana/0_100.jpg", Imgcodecs.IMREAD_GRAYSCALE);
 
         // Ekstraksi fitur menggunakan SIFT
         SIFT sift = SIFT.create();
         MatOfKeyPoint keypoints = new MatOfKeyPoint();
         Mat descriptor = new Mat();
         sift.detectAndCompute(testImage, new Mat(), keypoints, descriptor);
-
-        // Hitung jumlah keypoints yang terdeteksi
-        int numberOfKeypoints = keypoints.rows();
-        System.out.println("Jumlah keypoints yang terdeteksi: " + numberOfKeypoints);
 
         // Hitung rata-rata deskriptor untuk prediksi
         Mat avgDescriptor = new Mat();
@@ -41,9 +40,9 @@ public class CatClassifierPrediction {
 
         // Tampilkan hasil prediksi
         if (result == 1) {
-            System.out.println("Gambar adalah kucing.");
+            System.out.println("Gambar adalah kucing");
         } else {
-            System.out.println("Gambar bukan kucing.");
+            System.out.println("Gambar bukan kucing");
         }
     }
 }
