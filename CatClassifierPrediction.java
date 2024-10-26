@@ -16,7 +16,7 @@ public class CatClassifierPrediction {
 
         // Load gambar uji
         // assets/CAT_00/00000001_000.jpg
-        // assets/kucing2.jpg
+        // assets/download.jpeg
         // banana/0_100.jpg
         Mat testImage = Imgcodecs.imread("banana/0_100.jpg", Imgcodecs.IMREAD_GRAYSCALE);
 
