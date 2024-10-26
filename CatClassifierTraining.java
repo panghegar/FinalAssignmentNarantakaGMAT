@@ -25,9 +25,9 @@ public class CatClassifierTraining {
         List<Mat> descriptors = new ArrayList<>();
         List<Integer> labels = new ArrayList<>();
 
-        // Proses gambar pisang (label 1)
+        // Proses gambar kucing (label 1)
         processCategory(catDir, descriptors, labels, 1);
-        // Proses gambar non-pisang (label 0)
+        // Proses gambar non-kucing (label 0)
         processCategory(bananaDir, descriptors, labels, 0);
 
         // Gabungkan semua deskriptor menjadi satu Mat
