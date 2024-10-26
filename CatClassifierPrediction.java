@@ -26,19 +26,19 @@ public class CatClassifierPrediction {
         Mat descriptor = new Mat();
         sift.detectAndCompute(testImage, new Mat(), keypoints, descriptor);
 
-        // Hitung rata-rata deskriptor untuk prediksi
+        // Menghitung rata-rata deskriptor untuk prediksi
         Mat avgDescriptor = new Mat();
         Core.reduce(descriptor, avgDescriptor, 0, Core.REDUCE_AVG, -1);
 
-        // Pastikan avgDescriptor berbentuk 1xN
+        // Memastikan avgDescriptor berbentuk 1xN
         if (avgDescriptor.rows() > 1) {
             Core.transpose(avgDescriptor, avgDescriptor);
         }
 
-        // Prediksi menggunakan model SVM
+        // Memprediksi menggunakan model SVM
         float result = svm.predict(avgDescriptor);
 
-        // Tampilkan hasil prediksi
+        // Menampilkan hasil prediksi
         if (result == 1) {
             System.out.println("Gambar adalah kucing");
         } else {
